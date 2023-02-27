@@ -38,22 +38,22 @@ Develop SQL statements required to manipulate a database of pets<br>
  - Town VARCHAR(100)
  
 **To create the Owner table**<br>
-`TODO`
+CREATE TABLE Owner (Id CHAR(36), Name VARCHAR(100),Town VARCHAR(100), PRIMARY KEY(Id))
 
 **To create the Animal table**<br>
-`TODO`
+CREATE TABLE Animals (Id CHAR(36), Name VARCHAR(36), OwnerId CHAR(36), Hunger INT, Species CHAR(1), PRIMARY KEY (Id), FOREIGN KEY (OwnerId) REFERENCES Owner(Id))
 
 **To insert a new Owner row**<br>
-`TODO`
+INSERT INTO Owner (Id, Name, Town) VALUES ('bb2e7432-9512-4ca5-a6ae-75204daf9966', 'Bob', 'Coventry')
 
 **To insert a new Cat row**<br>
-`TODO`
+INSERT INTO Animals (Id, Name, OwnerId, Hunger, Species) VALUES ('8282ea26-e683-4b2b-823b-9a11708940e7', 'Rob', 'bb2e7432-9512-4ca5-a6ae-75204daf9966', 9, 'C')
 
 **To insert a new Dog row**<br>
-`TODO`
+INSERT INTO Animals (Id, Name, OwnerId, Hunger, Species) VALUES ('9961e9e7-414c-4c59-85a1-d25ce4a14ef3', 'Bob', 'bb2e7432-9512-4ca5-a6ae-75204daf9966', 10, 'D')
 
 **To query an animal**<br>
-`TODO`
+SELECT Animals.Name FROM Animals animals WHERE animals.Name = 'Bob'
 
 **To query all pets for an owner**<br>
-`TODO`
+SELECT Animals.Name FROM Owner owner, Animals animals WHERE owner.Name = 'Bob' AND animals.OwnerId = Owner.Id
