@@ -22,6 +22,8 @@ Develop SQL statements required to manipulate a database of pets<br>
 
 ## Bonus
 * Create another related table with SQL
+CREATE TABLE FoodStore (Id CHAR(36), Name VARCHAR(100),Town VARCHAR(100), OwnerId CHAR(36), PRIMARY KEY(Id), FOREIGN KEY (OwnerId) REFERENCES Owner(Id))
+INSERT INTO FoodStore (Id, Name, Town, OwnerId) VALUES ('6b7999e2-dc0f-4a58-89e7-9a84fb7f286e', 'Pets', 'Coventry','bb2e7432-9512-4ca5-a6ae-75204daf9966')
 
 ## Database Schema
 
@@ -57,3 +59,4 @@ SELECT Animals.Name FROM Animals animals WHERE animals.Name = 'Bob'
 
 **To query all pets for an owner**<br>
 SELECT Animals.Name FROM Owner owner, Animals animals WHERE owner.Name = 'Bob' AND animals.OwnerId = Owner.Id
+
